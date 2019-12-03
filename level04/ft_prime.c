@@ -1,41 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expand_str.c                                       :+:      :+:    :+:   */
+/*   ft_prime.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/01 18:15:39 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/03 09:49:56 by gmolin           ###   ########.fr       */
+/*   Created: 2019/12/03 11:49:47 by gmolin            #+#    #+#             */
+/*   Updated: 2019/12/03 11:54:12 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 
 int main(int argc, char **argv)
 {
     int i;
-    int flg;
+    int nb;
 
     if (argc == 2)
     {
-        i = 0;
-        while (argv[1][i] == ' ' || argv[1][i] == '\t')
-            i++;
-        while (argv[1][i])
+        nb = atoi(argv[1]);
+        i = 1;
+        if (nb == 1)
         {
-            if (argv[1][i] == ' ' || argv[1][i] == '\t')
-                flg = 1;
-            if (!(argv[1][i] == ' ' || argv[1][i] == '\t'))
+            printf("1");
+            return (0);
+        }
+        while (nb >= ++i)
+        {
+            if (nb % i == 0)
             {
-                if (flg)
-                    write(1, "   ", 3);
-                flg = 0;
-                write (1, &argv[1][i], 1);
+                printf("%d", i);
+                if (nb == i)
+                    break ;
+                nb /= i;
+                i = 1;
+                printf("*");
             }
-            i++;
         }
     }
-    write (1, "\n", 1);
+    printf("\n");
     return (0);
 }

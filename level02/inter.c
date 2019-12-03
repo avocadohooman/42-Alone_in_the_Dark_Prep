@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 15:43:23 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/01 19:37:15 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/12/03 09:01:18 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 			while (argv[2][j])
 			{
 				if (argv[1][i] == argv[2][j] && is_present(argv[1], i) && is_present(argv[2], j))
-					write(1, &argv[2][j], 1);
+					write(1, &argv[1][i], 1);
 				j++;
 			}
 			i++;

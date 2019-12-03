@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_bits.c                                       :+:      :+:    :+:   */
+/*   ft_list_foreach.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/01 16:23:19 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/03 09:07:45 by gmolin           ###   ########.fr       */
+/*   Created: 2019/12/03 11:31:53 by gmolin            #+#    #+#             */
+/*   Updated: 2019/12/03 11:35:57 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_list.h"
 
-void    print_bits(unsigned char octet)
+void ft_list_foreach(t_list *begin_list, void (*f)(void *))
 {
-    unsigned int i;
-
-    i = 256;
-    while (i >>= 1)
+    if (!begin_list || !f)
+        return ;
+    while (begin_list)
     {
-        if (octet & i)
-            write (1, "1", 1);
-        else 
-            write (1, "0", 1);
+        f(begin_list->data);
+        begin_list = begin_list->next;
     }
 }

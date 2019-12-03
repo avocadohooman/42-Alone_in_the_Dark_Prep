@@ -6,32 +6,32 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 19:05:26 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/01 19:19:22 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/12/03 10:48:30 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_putchar(char c)
+void    ft_putchar(char c)
 {
-    write (1, &c, 1);
+    write(1, &c, 1);
 }
 
-void ft_putnbr(int nb)
+void    ft_putnbr(int nb)
 {
     long i;
 
     i = nb;
     if (i < 0)
     {
-        write (1, "-", 1);
-        i *= -1;
+        i = i * -1;
+        ft_putchar('-');
     }
-    if (i >= 0 && i <= 9)
+    if (i >=0 && i <= 9)
     {
         ft_putchar(i + 48);
     }
-    else 
+    if (i > 9)
     {
         ft_putnbr(i / 10);
         ft_putnbr(i % 10);
@@ -44,6 +44,7 @@ int main(int argc, char **argv)
     {
         ft_putnbr(argc - 1);
         ft_putchar('\n');
+        argv[1] = argv[1];
         return (0);
     }
     ft_putchar('0');

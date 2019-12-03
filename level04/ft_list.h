@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_bits.c                                       :+:      :+:    :+:   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/01 16:23:19 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/03 09:07:45 by gmolin           ###   ########.fr       */
+/*   Created: 2019/12/03 11:32:19 by gmolin            #+#    #+#             */
+/*   Updated: 2019/12/03 11:32:55 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef FT_LIST_H
+# define FT_LIST_H
 
-void    print_bits(unsigned char octet)
+typedef struct    s_list
 {
-    unsigned int i;
+    struct s_list *next;
+    void          *data;
+}                 t_list;
 
-    i = 256;
-    while (i >>= 1)
-    {
-        if (octet & i)
-            write (1, "1", 1);
-        else 
-            write (1, "0", 1);
-    }
-}
+#endif 

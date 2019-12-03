@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 15:34:57 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/01 19:39:14 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/12/03 08:53:03 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,17 @@ char    *ft_strrev(char *str)
     int len;
     char tmp;
 
-    len = 0;
-    while (str[len] != '\0')
-        len++;
     i = 0;
+    while (str[len])
+        len;
     len = len - 1;
-    while (*str && len > 0)
+    while (str[i])
     {
         tmp = str[len];
         str[len] = str[i];
         str[i] = tmp;
-        i++;
         len--;
+        i++;
     }
     return (str);
 }

@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_bits.c                                       :+:      :+:    :+:   */
+/*   pgcd.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/01 16:23:19 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/03 09:07:45 by gmolin           ###   ########.fr       */
+/*   Created: 2019/12/03 10:51:57 by gmolin            #+#    #+#             */
+/*   Updated: 2019/12/03 11:10:43 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void    print_bits(unsigned char octet)
+int main(int argc, char **argv)
 {
-    unsigned int i;
+    int i;
 
-    i = 256;
-    while (i >>= 1)
+    i = 1000000;
+    if (argc == 3)
     {
-        if (octet & i)
-            write (1, "1", 1);
-        else 
-            write (1, "0", 1);
+        while (i > 0)
+        {
+            if (atoi(argv[1]) % i == 0 && atoi(argv[2]) % i == 0)
+            {
+                printf("%d\n", i);
+                return (0);
+            }
+            i--;
+        }
     }
+    return (0);
 }

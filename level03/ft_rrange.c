@@ -1,27 +1,27 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int *ft_range(int min, int max)
+int     *ft_rrange(int min, int max)
 {
-    int *arr;
     int i;
+    int *arr;
 
     i = 0;
-    if (min > max)
+    if (min >= max)
     {
         arr = malloc(sizeof(int) * (min - max) + 1);
-        i = (min - max) + 1;
-        while (min >= max)
+        i = (min - max);
+        while (max <= min)
         {
             arr[i] = min;
             min--;
             i--;
         }
     }
-    else 
+    else
     {
         arr = malloc(sizeof(int) * (max - min) + 1);
-        i = max - min;
+        i = (max - min);
         while (min <= max)
         {
             arr[i] = min;
@@ -39,7 +39,7 @@ int main()
     int min = 0;
     int max = -3;
     
-    arr = ft_range(min, max);
+    arr = ft_rrange(min, max);
     while (i < 4)
     {
         printf("%d ", arr[i]);

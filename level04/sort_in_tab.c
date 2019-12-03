@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_bits.c                                       :+:      :+:    :+:   */
+/*   sort_in_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/01 16:23:19 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/03 09:07:45 by gmolin           ###   ########.fr       */
+/*   Created: 2019/12/03 11:39:51 by gmolin            #+#    #+#             */
+/*   Updated: 2019/12/03 11:42:06 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void    print_bits(unsigned char octet)
+void sort_int_tab(int *tab, unsigned int size)
 {
     unsigned int i;
+    unsigned int j;
+    int tmp;
 
-    i = 256;
-    while (i >>= 1)
+    i = 0;
+    tmp = 0;
+    while (i < size - 1)
     {
-        if (octet & i)
-            write (1, "1", 1);
-        else 
-            write (1, "0", 1);
+        j = i;
+        while (j < size)
+        {
+            if (tab[i] > tab[j])
+            {
+                tmp = tab[i];
+                tab[i] = tab[j];
+                tab[j] = tmp;
+            }
+            j++;
+        }
+        i++;
     }
 }
