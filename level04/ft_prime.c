@@ -6,13 +6,12 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 11:49:47 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/03 11:54:12 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:46:29 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-
 
 int main(int argc, char **argv)
 {
@@ -35,9 +34,9 @@ int main(int argc, char **argv)
                 printf("%d", i);
                 if (nb == i)
                     break ;
+                printf("*");
                 nb /= i;
                 i = 1;
-                printf("*");
             }
         }
     }
