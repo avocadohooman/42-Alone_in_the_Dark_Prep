@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 19:20:56 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/08 19:27:07 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/12/10 12:08:11 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 {
-    int     tmp1;
-    t_list *tmp2;
+    int     tmp;
+    t_list *tmp_list;
 
-    tmp2 = lst;
-    while (lst->next)
+    tmp_list = lst;
+    while (lst)
     {
-        if ((*cmp)(lst->data, lst->next->data) == 0)
+        if (((*cmp)(lst->data, lst->next->data) == 0))
         {
-            tmp1 = lst->data;
+            tmp = lst->data;
             lst->data = lst->next->data;
-            lst->next->data = tmp1;
-            lst = tmp2;
+            lst->next->data = tmp;
+            lst = tmp_list;
         }
         else 
             lst = lst->next;
     }
-    lst = tmp2;
+    lst = tmp_list;
     return (lst);
 }

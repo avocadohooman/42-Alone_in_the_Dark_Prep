@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 17:04:37 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/08 17:59:23 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/12/10 10:16:33 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,30 @@ void    ft_putstr(char *str)
         write(1, &str[i++], 1);
 }
 
-char    *rev_wstr(char *str)
+
+char *rev_wstr(char *str)
 {
-    char *rev_str;
-    int i;
     int len;
+    int i;
     int pos;
-    
-    len = 0;
-    while(str[len])
+    char *rev_str;
+
+    while (str[len])
         len++;
     rev_str = malloc(sizeof(char) * len + 1);
-    i = 0;
     len--;
+    i = 0;
     while (len >= 0)
     {
-        if (str[len] > 32)
-        {
-            while (str[len] > 32)
-                len--;
-            len++;
-            pos = len;
-            while (str[len] > 32 && str[len] != '\0')
-                rev_str[i++] = str[len++];
-            len = pos;
-        }
+        while (str[len] > 32)
+            len--;
+        pos = len;
+        len++;
+        while (str[len] > 32 && str[len])
+            rev_str[i++] = str[len++];
+        len = pos;
         if (str[len] == ' ' || str[len] == '\t' || str[len] == '\n')
-                rev_str[i++] = str[len];
+            rev_str[i++] = str[len];
         len--;
     }
     rev_str[i] = '\0';

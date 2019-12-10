@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 11:49:47 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/08 15:46:29 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/12/10 12:01:56 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,12 @@ int main(int argc, char **argv)
     int i;
     int nb;
 
+    i = 1;
     if (argc == 2)
     {
         nb = atoi(argv[1]);
-        i = 1;
         if (nb == 1)
-        {
             printf("1");
-            return (0);
-        }
         while (nb >= ++i)
         {
             if (nb % i == 0)
