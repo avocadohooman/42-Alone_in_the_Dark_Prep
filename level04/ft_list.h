@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 11:32:19 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/08 16:06:40 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/12/17 09:48:54 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,4 @@ typedef struct    s_list
     void          *data;
 }                 t_list;
 
-#endif 
+#endif
