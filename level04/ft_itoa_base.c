@@ -5,32 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/29 15:33:51 by lsauvage          #+#    #+#             */
-/*   Updated: 2020/01/03 15:06:05 by gmolin           ###   ########.fr       */
+/*   Created: 2020/01/03 12:47:56 by gmolin            #+#    #+#             */
+/*   Updated: 2020/01/03 15:44:30 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <stdlib.h>
-#define abs(v) (v) < 0 ? -(v) : (v) // abs function to calculate the Absolute value
+#define abc(v) (v < 0) ? (-v) : (v)
 
 void ib(int n, int b, char *res, int *p)
 {
 	char *str = "0123456789ABCDEF";
 
-	if (n >= b || n <= -b) // recursive call for the function
-		ib(n /b, b, res, p);
-	res[(*p)++] = str[abs(n % b)]; 
+	if (n >= b || n <= -b)
+		ib(n / b, b, res, p);
+	res[(*p)++] = str[abc(n % b)];
 }
 
-
-char *ft_itoa_base(int value, int base)
+char	*ft_itoa_base(int value, int base)
 {
-	int p = 0;
 	char *res;
+	int p = 0;
 
-	if (((base < 2 || base > 16) || !(res = (char *)malloc(sizeof(char) * 35)))) // maximum length needed in the condition --> waste of memory
-		return NULL;
-	if (value < 0 && base == 10)
+	if (base < 2 || base > 16 || !(res = malloc(sizeof(char) * 35)))
+		return (NULL);
+	if (base == 10 && value < 0)
 		res[p++] = '-';
 	ib(value, base, res, &p);
 	res[p] = '\0';
@@ -41,7 +41,6 @@ int main(int ac, const char **av)
 {
 	if (ac == 3)
 	{
-		printf("taille de value : %zu\n", digit_count(atoi(av[1]), atoi(av[2])));
 		printf("itoa : %s\n", ft_itoa_base(atoi(av[1]), atoi(av[2])));
 	}
 	return (0);

@@ -6,39 +6,40 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 16:26:03 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/17 10:15:44 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/03 10:33:22 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-char **ft_split(char *str)
+char    **ft_split(char *str)
 {
-    int i;
-    int j;
-    int k;
-    char **split;
+	int i;
+	int k;
+	int j;
+	char **split;
 
-    i = 0;
-    k = 0;
-    split = (char **)malloc(sizeof(char*) * 256);
-    while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
-        i++;
-    while (str[i])
-    {
-        j = 0;
-        split[k] = (char*)malloc(sizeof(char) * 4096);
-        while (str[i] != ' ' && str[i] != '\t' && str[i] != '\n' && str[i])
-            split[k][j++] = str[i++];
-        split[k][j] = '\0';
-        while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
-            i++;
-        k++;
-    }
-    split[k] = NULL;
-    return (split);
+	i = 0;
+	k = 0;
+	split = (char**)malloc(sizeof(char*) * 256);
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+		i++;
+	while (str[i])
+	{
+		j = 0;
+		split[k] = (char*)malloc(sizeof(char) * 4096);
+		while (str[i] != ' ' && str[i] != '\t' && str[i] != '\n' && str[i])
+			split[k][j++] = str[i++];
+		split[k][j] = '\0';
+		while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+			i++;
+		k++;
+	}
+	split[k] = NULL;
+	return (split);
 }
+
 
 int main()
 {

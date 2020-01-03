@@ -6,18 +6,17 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 18:59:34 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/17 10:42:35 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/03 11:00:29 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "brainfuck.h"
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 char *bracket(char *str, int way)
 {
 	int i;
-
 	i = 0;
 	while (1)
 	{

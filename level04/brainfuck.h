@@ -6,11 +6,12 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 11:10:43 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/16 17:16:36 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/03 10:52:37 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BRAINFUCK_H
 # define BRAINFUCK_H
+
 
 #endif

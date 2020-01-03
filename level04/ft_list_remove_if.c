@@ -6,11 +6,12 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 16:19:39 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/17 09:52:48 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/03 10:11:55 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "ft_list.h"
 
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {

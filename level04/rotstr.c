@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 18:05:51 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/17 11:04:14 by gmolin           ###   ########.fr       */
+/*   Updated: 2019/12/17 13:36:13 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ char *rostring(char *str)
     rstr[k] = '\0';
     return (rstr);
 }
+
 int main(int argc, char **argv)
 {
     char *str;
