@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 18:59:34 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/03 11:00:29 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/05 17:07:06 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 char *bracket(char *str, int way)
 {
 	int i;
+
 	i = 0;
 	while (1)
 	{
@@ -30,6 +31,7 @@ char *bracket(char *str, int way)
 	}
 	return (NULL);
 }
+
 
 void brainfuck(char *str)
 {
@@ -45,9 +47,9 @@ void brainfuck(char *str)
 		if (*str == '>')
 			ptr++;
 		if (*str == '<')
-			ptr--;
+			ptr--;	
 		if (*str == '+')
-			*ptr = *ptr + 1;
+			*ptr = *ptr + 1;	
 		if (*str == '-')
 			*ptr = *ptr - 1;
 		if (*str == '.')
@@ -55,7 +57,6 @@ void brainfuck(char *str)
 		str++;
 	}
 }
-
 int main(int argc, char **argv)
 {
     if (argc == 2)

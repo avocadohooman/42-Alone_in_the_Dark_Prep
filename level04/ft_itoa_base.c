@@ -6,22 +6,23 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 12:47:56 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/03 15:44:30 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/05 20:12:03 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-#define abc(v) (v < 0) ? (-v) : (v)
+#define abs(v) (v) < 0 ? (-v) : (v)
 
-void ib(int n, int b, char *res, int *p)
+void id(int n, int b, char *res, int *p)
 {
 	char *str = "0123456789ABCDEF";
 
 	if (n >= b || n <= -b)
-		ib(n / b, b, res, p);
-	res[(*p)++] = str[abc(n % b)];
+		id(n / b, b, res, p);
+	res[(*p)++] = str[abs(n % b)];
 }
+
 
 char	*ft_itoa_base(int value, int base)
 {
@@ -29,14 +30,13 @@ char	*ft_itoa_base(int value, int base)
 	int p = 0;
 
 	if (base < 2 || base > 16 || !(res = malloc(sizeof(char) * 35)))
-		return (NULL);
+		return NULL;
 	if (base == 10 && value < 0)
 		res[p++] = '-';
-	ib(value, base, res, &p);
+	id (value, base, res, &p);
 	res[p] = '\0';
 	return (res);
 }
-
 int main(int ac, const char **av)
 {
 	if (ac == 3)

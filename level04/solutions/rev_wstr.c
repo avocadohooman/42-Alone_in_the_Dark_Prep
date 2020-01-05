@@ -5,53 +5,61 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/27 09:03:27 by jaleman           #+#    #+#             */
-/*   Updated: 2019/12/08 16:51:41 by gmolin           ###   ########.fr       */
+/*   Created: 2019/12/08 17:04:37 by gmolin            #+#    #+#             */
+/*   Updated: 2020/01/05 17:34:10 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdlib.h>
 
-int		main(int argc, char *argv[])
+void    ft_putstr(char *str)
 {
-	int		i;
-	int		j;
-	int		num;
-	char	words[256][4096];
+    int i = 0;
 
-	if (argc == 2)
-	{
-		i = 0;
-		j = 0;
-		num = 0;
-		while (argv[1][i] != '\0')
-		{
-			if (argv[1][i] == ' ')
-			{
-				num += 1;
-				i += 1;
-				j = 0;
-			}
-			words[num][j] = argv[1][i];
-			i += 1;
-			j += 1;
-		}
-		j = 0;
-		while (num >= 0)
-		{
-			if (words[num][j] == '\0')
-			{
-				if (num > 0)
-					write(1, " ", 1);
-				if (num == 0 && words[num][j] == '\0')
-					break ;
-				num -= 1;
-				j = 0;
-			}
-			write(1, &words[num][j], 1);
-			j += 1;
-		}
-	}
-	write(1, "\n", 1);
-	return (0);
+    while (str[i])
+        write(1, &str[i++], 1);
+}
+
+
+char *rev_wstr(char *str)
+{
+    int len;
+    int i;
+    int pos;
+    char *rev_str;
+
+    while (str[len])
+        len++;
+    rev_str = malloc(sizeof(char) * len + 1);
+    len--;
+    i = 0;
+    while (len >= 0)
+    {
+        while (str[len] > 32)
+            len--;
+        pos = len;
+        len++;
+        while (str[len] > 32 && str[len])
+            rev_str[i++] = str[len++];
+        len = pos;
+        if (str[len] == ' ' || str[len] == '\t' || str[len] == '\n')
+            rev_str[i++] = str[len];
+        len--;
+    }
+    rev_str[i] = '\0';
+    return (rev_str);
+}
+
+int main(int argc, char **argv)
+{
+    char *str;
+
+    if (argc == 2)
+    {
+        str = rev_wstr(argv[1]);
+        ft_putstr(str);
+    }
+    write(1, "\n", 1);
+    return (0);
 }
