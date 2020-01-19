@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 18:05:51 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/05 18:13:15 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/19 19:41:00 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ char *rostring(char *str)
     int j;
     int k;
     char *tmp;
-    char *rev;
+    char *rot;
 
     i = 0;
     j = 0;
     k = 0;
+    rot = malloc(sizeof(char) * 4096);
     tmp = malloc(sizeof(char) * 4096);
-    rev = malloc(sizeof(char) * 4096);
     while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
         i++;
     while (str[i] > 32 && str[i])
@@ -52,25 +52,22 @@ char *rostring(char *str)
     }
     if (str[i] == '\0')
         return (tmp);
-    while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
-            i++;
-    while (str[i])
+    while (str[i] != '\0')
     {
-        while (str[i] > 32 && str[i])
-            rev[k++] = str[i++];
-        if ((str[i] == ' ' || str[i] == '\t' || str[i] == '\n') && str[i])
-            rev[k++] = str[i];
         while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
             i++;
+        while (str[i] != ' ' && str[i] != '\t' && str[i] != '\n' && str[i])
+            rot[k++] = str[i++];
+        if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+            rot[k++] = str[i];
     }
     if (str[i - 1] > 32)
-        rev[k++] = ' ';
+        rot[k++] = ' ';
     j = 0;
-    while (tmp[j])
-        rev[k++] = tmp[j++];
-    rev[k] = '\0';
-    return (rev);
-
+    while(tmp[j])
+       rot[k++] = tmp[j++];
+    rot[k] = '\0';
+    return (rot);
 }
 
 int main(int argc, char **argv)

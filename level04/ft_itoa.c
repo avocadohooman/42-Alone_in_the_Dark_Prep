@@ -6,14 +6,14 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 11:11:04 by gmolin            #+#    #+#             */
-/*   Updated: 2019/12/17 09:47:39 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/19 18:29:23 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int countdigit(int nb)
+int     countdigit(int nb)
 {
     int i;
 
@@ -24,25 +24,26 @@ int countdigit(int nb)
     {
         nb /= 10;
         i++;
-    }
+    }   
     return (i);
 }
 
-char *ft_itoa(int nb)
+
+char	*ft_itoa(int nbr)
 {
     long tmp;
     long len;
-    char *str;
+    char    *str;
 
-    len = countdigit(nb);
-    tmp = nb;    
-    if (nb < 0)
+    tmp = nbr;
+    len = countdigit(nbr);
+    if (nbr < 0)
     {
-        tmp *= -1;
         len++;
+        tmp *= - 1;
     }
-    if (nb == 0 || nb == -0)
-        return ("0");
+    if (nbr == 0 || nbr == -0)
+        return ("0");    
     str = malloc(sizeof(char) * len + 1);
     str[len] = '\0';
     while (tmp)
@@ -51,14 +52,15 @@ char *ft_itoa(int nb)
         str[len] = tmp % 10 + '0';
         tmp /= 10;
     }
-    if (nb < 0)
+    if (nbr < 0)
         str[0] = '-';
     return (str);
 }
 
+
 int main ()
 {
-    int a = 2147483647;
+    int a = -23233;
     char *str;
 
     str = ft_itoa(a);

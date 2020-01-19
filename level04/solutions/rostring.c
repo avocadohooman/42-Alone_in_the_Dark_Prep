@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 10:06:43 by jaleman           #+#    #+#             */
-/*   Updated: 2020/01/05 17:53:32 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/19 19:38:07 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char *rostring(char *str)
         return (tmp);
     new = malloc(sizeof(char) * 4096);
     while(str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
-        i++;;
+        i++;
     while (str[i])
     {
         while (str[i] > 32 && str[i])

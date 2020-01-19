@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 11:39:51 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/05 17:22:27 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/19 19:55:28 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@ void sort_int_tab(int *tab, unsigned int size)
 	unsigned int j;
 	int tmp;
 
-	tmp = 0;
 	i = 0;
 	while (i < size - 1)
 	{
-		j = i;
+		j = 0;
 		while (j < size)
 		{
 			if (tab[i] > tab[j])
@@ -33,4 +32,19 @@ void sort_int_tab(int *tab, unsigned int size)
 		}
 		i++;
 	}
+}
+
+#include <stdio.h>
+int main()
+{
+	int tab[6] = {1, 4, 2, 3, 5, 89};
+	int i = 0;
+
+	sort_int_tab(tab, 7);
+	while (i < 6)
+	{
+		printf("%i, ", tab[i]);
+		i++;
+	}
+	return (0);
 }

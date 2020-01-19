@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 17:04:37 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/05 17:48:25 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/19 19:10:45 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void ft_putstr(char *str)
+void    ft_putstr(char *str)
 {
     int i;
 
@@ -26,34 +26,34 @@ void ft_putstr(char *str)
     }
 }
 
-char *rev_wstr(char *str)
+char    *rev_wstr(char *str)
 {
-    char *rev_str;
-    int len;
+    char *rev;
     int i;
+    int k;
     int pos;
 
     i = 0;
-    len = 0;
-    while (str[len])
-        len++;
-    rev_str = malloc(sizeof(char) * len + 1);
-    len--;
-    while (len > 0)
+    k = 0;
+    while (str[i])
+        i++;
+    rev = malloc(sizeof(char) * i + 1);
+    i--;
+    while (i > 0)
     {
-        while (str[len] > 32)
-            len--;
-        pos = len;
-        len++;
-        while (str[len] > 32)
-            rev_str[i++] = str[len++];
-        len = pos;
-        if (str[len] == ' ' || str[len] == '\t' || str[len] == '\n')
-            rev_str[i++] = str[len];
-        len--;
+        while (str[i] > 32)
+            i--;
+        pos = i;
+        i++;
+        while (str[i] > 32)
+            rev[k++] = str[i++];
+        i = pos;
+        if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+            rev[k++] = str[i];
+        i--;
     }
-    rev_str[i] = '\0';
-    return (rev_str);
+    rev[k] = '\0';
+    return (rev);
 }
 
 int main(int argc, char **argv)

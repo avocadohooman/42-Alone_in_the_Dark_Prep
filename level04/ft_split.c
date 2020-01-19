@@ -6,7 +6,7 @@
 /*   By: gmolin <gmolin@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 16:26:03 by gmolin            #+#    #+#             */
-/*   Updated: 2020/01/03 10:33:22 by gmolin           ###   ########.fr       */
+/*   Updated: 2020/01/19 18:49:58 by gmolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 char    **ft_split(char *str)
 {
-	int i;
-	int k;
-	int j;
 	char **split;
+	int i;
+	int j;
+	int k;
 
 	i = 0;
 	k = 0;
@@ -32,7 +32,7 @@ char    **ft_split(char *str)
 		while (str[i] != ' ' && str[i] != '\t' && str[i] != '\n' && str[i])
 			split[k][j++] = str[i++];
 		split[k][j] = '\0';
-		while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+		while ((str[i] == ' ' || str[i] == '\t' || str[i] == '\n') && str[i])
 			i++;
 		k++;
 	}
@@ -40,14 +40,13 @@ char    **ft_split(char *str)
 	return (split);
 }
 
-
 int main()
 {
-    char *str = "    HELLO HELLO L L L L L L L L L L L L   !!dsad 213 sad asd  49i0 9uidsjo ;lkfas ;s L L   L ";
+    char *str = "    HELLO HELLO L L L L L L L L L L L L  \0 !!dsad 213 sad asd  49i0 9uidsjo ;lkfas ;s L L   L ";
     char **split;
     int i = 0;
     int k;
-    
+
     split = ft_split(str);
     while (split[i])
     {
